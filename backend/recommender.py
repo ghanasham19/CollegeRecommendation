@@ -69,7 +69,7 @@ class DecisionEngine:
                 return 0.5 
             return 1.0
 
-        # 3. Calculate ML Vector Similarity
+        # 3. Calculate ML Vector Similarity 
         user_vector = [user_preferences[feat] for feat in self.features]
         college_vectors = df[self.features].values
         similarities = cosine_similarity([user_vector], college_vectors)[0]
