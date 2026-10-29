@@ -6,10 +6,16 @@ import numpy as np
 import sqlite3
 import datetime
 import pandas as pd
-app = Flask(__name__)
-CORS(app)
-engine = DecisionEngine(db_path="database.sqlite")
 
+print("1. Imports successful...")
+from recommender import DecisionEngine
+print("2. Recommender imported...")
+app = Flask(__name__)
+
+CORS(app)
+print("3. Initializing Decision Engine...")
+engine = DecisionEngine(db_path="database.sqlite")
+print("4. Engine Initialized!")
 @app.route('/api/health', methods=['GET'])
 def health_check():
     return jsonify({"status": "active", "message": "Decision Engine Operational"})
